@@ -1,0 +1,59 @@
+{% extends "layout1.html"%}
+    {%block content1%}
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-control-sm" name="form1" action="/resultado1" method="post">
+                <legend class="text-center">Entrada</legend>
+                <div class="control-group">
+                    <label for="txtNom" class="control-label">Nombre</label>
+                    <div class="controls">
+                        <input type="text" name="txtNom" placeholder="Nombre" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="txtNumCom" class="control-label">Cantidad de Compradores</label>
+                    <div class="controls">
+                        <input type="text" name="txtNumCom" placeholder="#Compradores" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <fieldset>
+                        <legend class="text-center">Targeta cineto</legend>
+                        <label>
+                            <input type="radio" name="rdb" value="Si"> Si
+                        </label>
+                        <label>
+                            <input type="radio" name="rdb" value="No"> No
+                        </label>
+                    </fieldset>
+                </div>
+                <div class="control-group">
+                    <label for="txtNumBol" class="control-label">Cantidad de Boletas</label>
+                    <div class="controls">
+                        <input type="text" name="txtNumBol" placeholder="#Boletas" value="">
+                    </div>
+                </div>
+                <fieldset>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <icon class="icon-book icon-white"></icon> Procesar
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <fieldset>
+                <legend class="text-center">Salida</legend>
+                <div class="control-group">
+                    <div class="controls">
+                        <textarea type="text" style="height: 12em; width: 20em" name="txtRes" placeholder="Resultado"
+                            value="">{{cadena}}</textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    {%endblock%}

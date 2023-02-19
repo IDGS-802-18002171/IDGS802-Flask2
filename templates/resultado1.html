@@ -1,0 +1,11 @@
+{% extends "layout1.html"%}
+{%block content1%}
+<h1>El numero mas grande de la lista es :{{numMax}}</h1>
+<h1>El nuero mas pequeño de la lista es :{{numMin}}</h1>
+{%for i in range(num) :%}
+    <h1>{{lista1[i]}}</h1>
+{%endfor%}
+{%if num==0 :%}
+    <h1>Lista sin numeros repetidos.</h1>
+{%endif%}
+{%endblock%}
