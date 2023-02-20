@@ -21,11 +21,14 @@ def Resultado():
     numMax=0
     numMin=int(request.form.get("numero{}".format(1)))
     numRange=0
+    suma=0
+    promedio=0
     lista = []
     lista1 = []
     cont=0
     for i in range(num):
         numRange=int(request.form.get("numero{}".format((i+1))))
+        suma=suma+numRange
         lista.append(numRange)
         if numRange>numMax :
             numMax=numRange
@@ -37,8 +40,9 @@ def Resultado():
         if(conteo>1) :
             lista1.append("El número {} aparece {} veces en la lista.".format(numero_repetido,conteo))
     lista2 = list(set(lista1))
+    promedio=(suma/num)
     num=len(lista2)
-    return render_template("resultado1.html",num=num,numMax=numMax,numMin=numMin,lista1=lista2)
+    return render_template("resultado1.html",num=num,numMax=numMax,numMin=numMin,lista1=lista2,suma=suma,promedio=promedio)
 
 if __name__ == "__main__":
     app.run(debug=True,port=3000)
