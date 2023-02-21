@@ -5,15 +5,33 @@
         <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" value="">
     </div>
 </div>
+{%if field.errors%}
+<ul>
+    {%for error in field.errors%}
+    <li style="color: red;">
+        {{error}}
+    </li>
+    {%endfor%}
+</ul>
+{%endif%}
 {% endmacro %}
 
 {% macro render_field(field) %}
-    <div class="control-group">
-        <div class="controls">
-            {{field.label}}
-            {{field(**kwargs)|safe}}
-        </div>
+<div class="control-group">
+    <div class="controls">
+        {{field.label}}
+        {{field(**kwargs)|safe}}
     </div>
+</div>
+{%if field.errors%}
+<ul>
+    {%for error in field.errors%}
+    <li style="color: red;">
+        {{error}}
+    </li>
+    {%endfor%}
+</ul>
+{%endif%}
 {% endmacro %}
 
 '''
@@ -22,7 +40,7 @@ name='datos'
 type=txt
 **kwargs
 def suma(**kwargs):
-    return args[0]+argas[1]
+return args[0]+argas[1]
 suma(1,2)
 suma(1,2,3)
 suma(1,2,3,4)

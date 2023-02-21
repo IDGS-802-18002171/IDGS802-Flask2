@@ -1,0 +1,26 @@
+{% extends "layout1.html"%}
+{%block content1%}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 form">
+            {%from "_macros.html" import render_field%}
+            <form action="" method="post">
+                <div class="from-group">
+                    {{render_field(form.ingles)}}
+                    {{render_field(form.español)}}
+                </div>
+                <input class="btn btn-success" type="submit" value="Guardar">
+            </form>
+        </div>
+        <div class="col-xs-6 form">
+            {%from "_macros.html" import render_field%}
+            <form action="" method="post">
+                <div class="from-group">
+                    {{render_field(form.busqueda)}}
+                </div>
+                <input class="btn btn-success" type="submit" value="Guardar">
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

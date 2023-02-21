@@ -6,7 +6,9 @@ from wtforms import validators
 
 class UserForm(Form):
     matricula=StringField('Matricula',[validators.DataRequired(message='La Matricula es requerida')])
-    nombre=StringField('Nombre',[validators.DataRequired(message='El nombre es requerido')])
+    nombre=StringField('Nombre',[
+        validators.DataRequired(message='El nombre es requerido'),
+        validators.length(min=5,max=15,message='Ingresa un valor maximo')])
     apaterno=StringField('Apaterno')
     amaterno=StringField('Amaterno')
     email=EmailField('Correo')

@@ -1,0 +1,4 @@
+Matricula : 12345
+Nombre : Mario
+Apellidos :Lopez
+Correo : charlyxbox360nuevo@gmail.com
