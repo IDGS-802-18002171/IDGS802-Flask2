@@ -8,5 +8,4 @@ class UserForm(Form):
     ingles=StringField('Ingles',[validators.DataRequired(message='Palabra requerida')])
     español=StringField('Español',[validators.DataRequired(message='Palabra requerida')])
     busqueda=StringField('Buscar...',[validators.DataRequired(message='Palabra requerida')])
-
     

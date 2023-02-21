@@ -9,15 +9,15 @@ def Home():
     num_form=forms2.UserForm(request.form)
     ingles=''
     español=''
-    if request.method=='POST':
+    if request.method=='POST' :
         ingles=num_form.ingles.data
         ingles=ingles.upper()
         español=num_form.español.data
         español=español.upper()
         f=open('diccionarioIngles.txt','a')
         f1=open('diccionarioEspañol.txt','a')
-        f.write('\n'+'{} : {}'.format(ingles,español))
-        f1.write('\n'+'{} : {}'.format(español,ingles))
+        f.write('\n'+'{}'.format(ingles))
+        f1.write('\n'+'{}'.format(español))
         f1.close()
         f.close()
     return render_template("home1.html",form=num_form)
@@ -25,33 +25,32 @@ def Home():
 
 @app.route("/resultado",methods=["POST"])
 def Resultado():
-    num=request.form.get("txtCont")
-    num=int(num)
-    numMax=0
-    numMin=int(request.form.get("numero{}".format(1)))
-    numRange=0
-    suma=0
-    promedio=0
-    lista = []
-    lista1 = []
+    num_form=forms2.UserForm(request.form)
+    idioma=request.form.get("rdb")
+    busqueda=num_form.busqueda.data
+    busqueda=busqueda.upper()
+    traduccion='No encontrada'
     cont=0
-    for i in range(num):
-        numRange=int(request.form.get("numero{}".format((i+1))))
-        suma=suma+numRange
-        lista.append(numRange)
-        if numRange>numMax :
-            numMax=numRange
-        if numRange<numMin :
-            numMin=numRange
-    for i in range(num):
-        numero_repetido = int(request.form.get("numero{}".format((i+1))))
-        conteo = lista.count(numero_repetido)
-        if(conteo>1) :
-            lista1.append("El número {} aparece {} veces en la lista.".format(numero_repetido,conteo))
-    lista2 = list(set(lista1))
-    promedio=(suma/num)
-    num=len(lista2)
-    return render_template("resultado1.html",num=num,numMax=numMax,numMin=numMin,lista1=lista2,suma=suma,promedio=promedio)
+    f=open('diccionarioEspañol.txt','r')
+    f1=open('diccionarioIngles.txt','r')
+    contenido1 = f1.read()
+    lista1 = contenido1.split('\n')
+    contenido = f.read()
+    lista = contenido.split('\n')
+    f.close()
+    f1.close()
+    if idioma=='E':
+        for item in lista :
+            if busqueda==item :
+                traduccion=lista1[cont]
+            cont=cont+1
+    cont=0
+    if idioma=='I':
+        for item in lista1 :
+            if busqueda==item :
+                traduccion=lista[cont]
+            cont=cont+1
+    return render_template("home1.html",form=num_form,traduccion=traduccion)
 
 if __name__ == "__main__":
     app.run(debug=True,port=3000)

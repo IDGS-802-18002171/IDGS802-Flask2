@@ -1,2 +1,4 @@
 
-RED : ROJO
+RED
+BLUE
+GREEN
