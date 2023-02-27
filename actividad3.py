@@ -28,8 +28,8 @@ def Home():
         valor=int(valor)
         maximo=0
         minimo=0
-        porcentaje=0
-        if radio==10:
+        porcentaje=0.0
+        if radio=='10':
             porcentaje=.05
         else :
             porcentaje=.1
