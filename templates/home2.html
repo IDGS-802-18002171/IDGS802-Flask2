@@ -1,0 +1,83 @@
+{% extends "layout1.html"%}
+{%block content1%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 float">
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <br>
+                    <img style="width: 2erm; height: 1erm;" src="../static/bootstrap/img/bandas.png"
+                        alt="Imagen de ejemplo" />
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+        <div class="col-md-4 form">
+            {%from "_macros.html" import render_field%}
+            <form action="/" method="post">
+                <div class="row">
+                    <div class="from-group col-md-8">
+                        <br>
+                        {{render_field(form.combo1)}}
+                        {{render_field(form.combo2)}}
+                        {{render_field(form.combo3)}}
+                        {{render_field(form.radio)}}
+                    </div>
+                </div>
+                <input class="btn btn-outline-info " type="submit" value="Calcular" onclick="">
+            </form>
+        </div>
+        <div class="col-md-8 form">
+            {%if lista!=null :%}
+            <br>
+            <table class="table-hover" style="background-color: white;">
+                <tr class="table-bordered">
+                    <th> Col Banda 1 </th>
+                    <th> Col Banda 2 </th>
+                    <th> Col Banda 3 </th>
+                    <th> Col Banda 4 </th>
+                    <th> Valor </th>
+                    <th> Minimo </th>
+                    <th> Maximo </th>
+                </tr>
+                <tr class="table-bordered table-active">
+                    {% from "_macros.html" import render_inputTable %}
+                    {{render_inputTable(lista)}}
+                    <td>{{valor}}</td>
+                    <td>{{minimo}}</td>
+                    <td>{{maximo}}</td>
+                </tr>
+            </table>
+            {%endif%}
+        </div>
+    </div>
+</div>
+<script>
+    function cambiarColor(cadena, color) {
+        // Obtener todas las celdas de la tabla
+        var celdas = document.getElementsByTagName('td');
+
+        // Recorrer todas las celdas y buscar la cadena
+        for (var i = 0; i < celdas.length; i++) {
+            if (celdas[i].innerHTML.indexOf(cadena) !== -1) {
+                // Si se encuentra la cadena, cambiar el color de fondo de la celda
+                celdas[i].style.backgroundColor = color;
+            }
+        }
+    }
+    function cambiarColor(cadena, color) {
+        // Obtener todas las celdas de la tabla
+        var celdas = document.getElementsByTagName('td');
+
+        // Recorrer todas las celdas y buscar la cadena
+        for (var i = 0; i < celdas.length; i++) {
+            if (celdas[i].innerHTML.indexOf(cadena) !== -1) {
+                // Si se encuentra la cadena, cambiar el color de fondo de la celda
+                celdas[i].style.backgroundColor = color;
+            }
+        }
+    }
+</script>
+{%endblock%}
