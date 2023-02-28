@@ -34,7 +34,7 @@
         </div>
         <div class="col-md-6 form">
             {%from "_macros.html" import render_field%}
-            <form action="" method="post">
+            <form action="/" method="post">
                 <div class="from-group">
                     <br>
                     {{render_field(form.ingles)}}
@@ -46,12 +46,8 @@
     </div>
 </div>
 <!--script>
-    function limpiarInputs() {
-        var inputs = document.querySelectorAll('input[type="text"]');
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].value = '';
-        }
+    function nuevamente() {
+        window.location.replace("https://http://127.0.0.1:3000/");
     }
-    window.onload = limpiarInputs;
 </script-->
 {%endblock%}
