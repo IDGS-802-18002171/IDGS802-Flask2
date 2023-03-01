@@ -7,30 +7,19 @@
             <form action="/resultado" method="post">
                 <div class="row">
                     <div class="control-group col-md-3">
-                        <br>
-                        <fieldset>
-                            <legend class="text-center">Idioma Fuente</legend>
-                            <label>
-                                <input type="radio" name="rdb" value="E"> Español
-                            </label>
-                            <label>
-                                <input type="radio" name="rdb" value="I"> Ingles
-                            </label>
-                        </fieldset>
+                        <br><br>
+                        {{render_field(form1.radio)}}
                     </div>
                     <div class="col-md-1"></div>
                     <div class="from-group col-md-8">
                         <br>
                         <br>
-                        {{render_field(form.busqueda)}}
+                        {{render_field(form1.busqueda)}}
                         <input class="btn btn-outline-info" type="submit" value="Buscar">
                     </div>
                 </div>
                 <input class="btn btn-outline-info hidden" type="submit" value="Buscar">
             </form>
-            {%if traduccion!=null :%}
-                <h1>La traduccion registrada es : {{traduccion}}</h1>
-            {%endif%}
         </div>
         <div class="col-md-6 form">
             {%from "_macros.html" import render_field%}

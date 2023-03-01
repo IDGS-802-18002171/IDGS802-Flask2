@@ -1,21 +1,19 @@
-   <!-- Begin alerts -->                
-   {% with messages = get_flashed_messages(with_categories=true) %}
-   {% if messages %}
-   {% for category, message in messages %}
+<!-- Begin alerts -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
 
-   <script>
-   Swal.fire({
-          title:"{{ category.title() }}!",
-          // success , error , warning ,info
+<script>
+       swal.fire({
+              title: "{{ category.title() }}",
+              // posibles categorias a recibir: success , error , warning ,info
+              text: "{{ message }}",
+              // menasaje a mandar
+              icon: "{{ category }}"
+              // posibles categorias a recibir: success , error , warning ,info
+       });
+</script>
 
-          text: "{{ message }}",
-          // Custom message flashed from your flask routes
-
-          icon: "{{ category }}" == "success" ? "error" : "{{ category }}"
-          // success , error , warning ,info
-   })
-   </script>
-
-   {% endfor %}
-   {% endif %}
-   {% endwith %}
+{% endfor %}
+{% endif %}
+{% endwith %}
