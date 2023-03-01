@@ -38,7 +38,7 @@ def Home():
         maximo=valor+cambiable
         datos='{}@{}@{}@{}@{}@{}@{}'.format(combo1,combo2,combo3,radio,valor,minimo,maximo)
         success_message='Valor Final : {}'.format(valor)
-        flash(success_message)
+        flash(success_message,category='success')
         response=make_response(render_template("home2.html",form=num_form,lista=lista,valor=valor,maximo=maximo,minimo=minimo))
     else :
         response=make_response(render_template("home2.html",form=num_form))
